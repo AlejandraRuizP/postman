@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="postman.css">
+    <title>Postman</title>
+</head>
+<body>
+   <div class="container">
+    <div id="history">
+         <!-- <div id="busqueda">
+            <div id="texto-busqueda">
+                <p>texto ejemplo </p>
+            </div>
+            <div id="btn">
+                <button id="btn-delete"> <strong>X</strong> </button>
+            </div>
+        </div>
+        <div id="busqueda">
+            <div id="texto-busqueda">
+                <p>texto ejemplo </p>
+            </div>
+            <div id="btn">
+                <button id="btn-delete"> <strong>X</strong> </button>
+            </div>
+        </div>  -->
+    </div>
+   <div id="data">
+    <div id="action">
+        <select name="verb" id="verb">
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+            <option value="GET">GET</option>
+        </select>
+        <div id="input">
+            <input type="text" name="" id="url" placeholder="api/url.com">
+        </div>
+        <div id="btn-enviar">
+            <button id="btn-send">Enviar</button>
+        </div>
+   </div>
+
+    <div id="header">
+        <textarea name="" id="datos-post" cols="100" rows="15" placeholder="DATOS JSON" ></textarea>
+    </div>
+    <div id="respuesta">
+        <textarea name="" id="respuesta-json" cols="100" rows="31" placeholder="RESPUESTA JSON" ></textarea>
+    </div>
+
+   </div>
+   </div>
+
+  <script src="postman.js"></script>
+</body>
+</html>

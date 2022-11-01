@@ -1,0 +1,121 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #1D202B;
+    /* color: #fff; */
+    align-items: center;
+}
+.container{
+    width: 70%;
+    margin: auto;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+   
+}
+#history{
+    background-color: #E3E5EB;
+    height: 90vh;
+    width: 40vh;
+    border-radius: 10px 0 0 0 ;
+    overflow-y: scroll;
+   /*  margin: auto; */
+}
+#history #busqueda{
+    background-color: white;
+    width: 90%;
+    height: 60px;
+    margin: 5%;
+    display: flex;
+    box-shadow: -1px 4px 9px 0px rgba(0,0,0,0.36);
+}
+#busqueda #texto-busqueda{
+   width: 80%;
+   height: 100%;
+
+}
+#busqueda button{
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+   margin-top: 15px
+ }
+ #busqueda #btn button{
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+ }
+ #busqueda #texto-busqueda, #busqueda #btn{
+    margin: 5%;
+ }
+ #data{
+    width: 50vw;
+    height: 90vh;
+    padding: 2%;
+    background-color: #E3E5EB;
+    border-radius: 0 10px 0 0 ;
+    margin: auto;
+ }
+
+ #action{
+    display: flex;
+    width:100%;
+    padding-bottom: 2%;
+ }
+ #input input{
+    width: 594px;
+    height: 40px;
+    outline: none;
+    border: solid 0.1px;
+    border-color: gray;
+
+ }
+ #action select, #action #btn-enviar button {
+    width: 80px;
+    height: 40px;
+    outline: none;
+    border: solid 0.1px;
+    border-color: gray;
+    text-align: center;
+ }
+ #action select{
+    border-radius: 9px 0 0 9px;
+ }
+ #action #btn-enviar button{
+    border-radius: 0 9px 9px 0;
+ }
+ 
+ #data #header, #data #respuesta{
+    padding-bottom: 2%;
+ }
+ #data #header textarea, #data #respuesta textarea{
+    outline: none;
+    border: none;
+    resize: auto;
+    width: 100%;
+ }
+
+@media screen and (max-width: 1000px) {
+    .container{
+        width: 100%;
+        margin: auto;
+        display: flex;
+    }
+    
+}
+@media screen and (max-width: 600px) {
+    
+}
