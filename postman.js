@@ -6,12 +6,12 @@ window.onload = ()=>{
         const btnSend           = document.querySelector('#btn-send');
         const historial         = document.querySelector('#history');
         const btnDelete         = document.querySelectorAll('#btn-deleteTest');
-        let arrBusquedas      = JSON.parse(localStorage.getItem("arrBusquedas")) || [];
-            let id              = 0;
-            let obj             = {"key":"value"}
+        let arrBusquedas        = JSON.parse(localStorage.getItem("arrBusquedas")) || [];
+        let id                  = 0;
+        let obj                 = {"key":"value"}
         datosPost.innerHTML     =JSON.stringify(obj, undefined, 4);
 
-        const postData = async (url,datos,verbo)=>{
+    const postData = async (url,datos,verbo)=>{
         let response = await fetch(url,{
             method:verbo,
             headers:{'Content-Type':'Application/json'},
@@ -35,6 +35,15 @@ window.onload = ()=>{
         }
     }
 
+    const deleteData = async (url,verbo)=>{
+        let response = await fetch(url,{
+            method:verbo
+        });
+        if(response.ok){
+            respuestaJson.innerHTML='Deleted!';
+
+        }
+    }
     const setBusquedas = (datos,id)=>{
         let divBusqueda = document.createElement('div');
         divBusqueda.id = 'busqueda';
@@ -50,8 +59,8 @@ window.onload = ()=>{
             arrBusquedas =  arrBusquedas.filter( b => {
                 return b.id != e.target.id
             })
-            localStorage.setItem("arrBusquedas",JSON.stringify(arrBusquedas))
-            divBusqueda.remove()
+            localStorage.setItem("arrBusquedas",JSON.stringify(arrBusquedas));
+            divBusqueda.remove();
         })
         divBusqueda.appendChild(btnDelete);
         historial.appendChild(divBusqueda);
@@ -64,13 +73,15 @@ window.onload = ()=>{
                 info :inputText.value
             }
             arrBusquedas.push(texto)
-            
-            console.log(arrBusquedas)
-            console.log(verbo.value)
+
             if(verbo.value=='GET'){
                 getData(inputText.value,verbo)
-            }else{
+            }
+            if(verbo.value=='PUT' || verbo.value=='POST' ){
                 postData(inputText.value,datosPost.value,verbo.value)
+            }
+            if(verbo.value=='DELETE'){
+                deleteData(inputText.value,verbo.value);
             }
 
             localStorage.setItem("arrBusquedas",JSON.stringify(arrBusquedas))
@@ -86,31 +97,5 @@ window.onload = ()=>{
             busquedas();
         }
     })
-
-   
-
-    const nombre = {
-        nombre: 'Alejandra',
-        apellido:'Ruiz',
-        residencia:'Luna'
-    }
-    //localStorage.setItem('nombre',JSON.stringify(nombre));
-    //onsole.log(localStorage);
-
-
-    /* const getPokemon = async () =>{
-        try {
-         const response = await fetch('https://pokeapi.co/api/v2/pokemon/ditto');
-         let responseJson = await response.json();
-         //console.log(responseJson);
-         return responseJson;
-         
-        } catch (error) {
-     
-         console.error({'Error': error})
-        }
-     }
-     getPokemon().then(v => console.log(v)) */
-     arrBusquedas.map( x => setBusquedas(x.info,x.id))
-     //Para eliminar, el contenido de e.target debe ser igual al contenido de uno elemento existente dentro del localStorage arr.
+    arrBusquedas.map( x => setBusquedas(x.info,x.id));
 }
