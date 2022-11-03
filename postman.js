@@ -72,20 +72,20 @@ window.onload = ()=>{
                 id: id++,
                 info :inputText.value
             }
-            arrBusquedas.push(texto)
+            arrBusquedas.push(texto);
 
             if(verbo.value=='GET'){
-                getData(inputText.value,verbo)
+                getData(inputText.value,verbo);
             }
             if(verbo.value=='PUT' || verbo.value=='POST' ){
-                postData(inputText.value,datosPost.value,verbo.value)
+                postData(inputText.value,datosPost.value,verbo.value);
             }
             if(verbo.value=='DELETE'){
                 deleteData(inputText.value,verbo.value);
             }
 
-            localStorage.setItem("arrBusquedas",JSON.stringify(arrBusquedas))
-            setBusquedas(texto.info,texto.id)
+            localStorage.setItem("arrBusquedas",JSON.stringify(arrBusquedas));
+            setBusquedas(texto.info,texto.id);
         }
     }
 
